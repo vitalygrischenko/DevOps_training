@@ -1,5 +1,8 @@
 #!/bin/bash
-yum update -y
-yum install -y git
-git clone -b task2 https://github.com/vitalygrischenko/DevOps_training.git
-cat DevOps_training/task2.txt
+if [ -f /home/vagrant/.ssh/id_rsa.pub ]; then
+cat /home/vagrant/.ssh/id_rsa.pub >> /vagrant/server1_vm.pub
+else
+ssh-keygen -b 4096 -t rsa -N ""
+cat /home/vagrant/.ssh/id_rsa.pub >> /vagrant/server1_vm.pub
+fi
+
