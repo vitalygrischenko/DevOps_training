@@ -1,1 +1,1 @@
-hello Gradle 1.0.0009
+hello Gradle 1.0.0010
