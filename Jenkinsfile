@@ -42,7 +42,6 @@ node('master') {
 
 node('tomcat1'){
     stage('downloading'){
-        //sh "curl --insecure http://172.16.0.10:8081/nexus/service/local/repositories/snapshots/content/${buildName}/${version}/${buildName}.war > /var/lib/tomcat/webapps/${buildName}.war"
         httpRequest outputFile: "${buildName}.war", responseHandle: 'NONE', url: "http://172.16.0.10:8081/nexus/service/local/repositories/snapshots/content/${buildName}/${version}/${buildName}.war"
     }
     stage('upgrading tomcat1'){
@@ -74,7 +73,7 @@ node('master') {
           sh 'git checkout master'
           sh 'git merge task6'
           sh "git tag -a v${version} -m 'version ${version}'"
-		  sh 'git push https://${git_name}:${git_pass}@github.com/vitalygrischenko/DevOps_training.git --tags'
+          sh 'git push https://${git_name}:${git_pass}@github.com/vitalygrischenko/DevOps_training.git --tags'
           sh 'git push https://${git_name}:${git_pass}@github.com/vitalygrischenko/DevOps_training.git --all'
        } 
     }
