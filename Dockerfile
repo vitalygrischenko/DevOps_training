@@ -1,7 +1,7 @@
 FROM tomcat:latest
 MAINTAINER Vitaly Grischenko <vitalygrischenko@gmail.com>
 
-ARG BUILD_FOLDER=task7
+ARG BUILD_FOLDER=task71
 ARG BUILD_VERSION=1.0.0019
 
 RUN mkdir /usr/local/tomcat/webapps/$BUILD_FOLDER
