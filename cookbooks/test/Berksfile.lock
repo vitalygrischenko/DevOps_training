@@ -1,0 +1,10 @@
+DEPENDENCIES
+  docker (~> 2.15.29)
+  test
+    path: .
+    metadata: true
+
+GRAPH
+  docker (2.15.29)
+  test (0.1.12)
+    docker (>= 0.0.0)
