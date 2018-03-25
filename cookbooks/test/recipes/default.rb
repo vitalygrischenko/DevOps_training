@@ -6,7 +6,7 @@
 
 docker_service 'default' do
   insecure_registry 'myregistry.com:5000'
-  action [:create, :start]
+  action [:create]
 end
 bash 'add_docker_option' do
   code <<-EOH
@@ -14,5 +14,5 @@ bash 'add_docker_option' do
     EOH
 end
 docker_service 'default' do
-  action [:restart]
+  action [:start]
 end
